@@ -1,3 +1,3 @@
 # home-site
-Node.js AppEngine jamesoguntebi.com
+Python AppEngine jamesoguntebi.com
 # home-site
