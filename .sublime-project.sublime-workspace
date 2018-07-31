@@ -1,0 +1,405 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"problem",
+				"problemNumber"
+			],
+			[
+				"b",
+				"bySuit"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/joguntebi/personal/home-site"
+	],
+	"file_history":
+	[
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_app_script_ltr.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_app_script_ltr.js",
+		"/home/joguntebi/tmp/main-prod/_locales/en/messages.json",
+		"/home/joguntebi/tmp/main-scary/_locales/en-US/messages.json",
+		"/home/joguntebi/tmp/main-scary/_locales/en/messages.json",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debug_app_script_ltr.js",
+		"/home/joguntebi/tmp/locales.csv",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debugbootstrap.js",
+		"/home/joguntebi/tmp/ba-scary/keep_ba-scary_debug_app_script_ltr.js",
+		"/home/joguntebi/tmp/ba-corp/keep_ba-corp_debug_app_script_ltr.js",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_grid_square.svg",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_grid_rules.svg",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_grid_dot.svg",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_square_grid_active_.svg",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_grid_dot_active.svg",
+		"/home/joguntebi/Downloads/drive-download-20180413T180340Z-001/ic_grid_dot_inactive.svg",
+		"/home/joguntebi/Downloads/ic_square_grid_inactive_.svg",
+		"/home/joguntebi/Downloads/ic_square_grid_active_.svg",
+		"/home/joguntebi/Downloads/keepclientlog2018-04-12.txt",
+		"/home/joguntebi/tmp/ba-corp/background.js",
+		"/home/joguntebi/tmp/ba-corp/injector.js",
+		"/home/joguntebi/tmp/ba-corp/keep_ba-corp_debugflags.js",
+		"/home/joguntebi/Downloads/lpcaedmchfhocbbapmcbpinfpgnhiddi.har",
+		"/home/joguntebi/tmp/memento_2018.08-Tue-1515_RC00_ba-prod/background.js",
+		"/home/joguntebi/tmp/memento_2018.08-Tue-1515_RC00_ba-prod/keep_ba-prodflags.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_app_styles_ltr.css",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_app_styles_rtl.css",
+		"/home/joguntebi/Downloads/ic_event_black_18dp.svg",
+		"/home/joguntebi/Downloads/ic_drive_presentation_black_18dp.svg",
+		"/home/joguntebi/Downloads/ic_drive_spreadsheet_black_18dp.svg",
+		"/home/joguntebi/ProjectEuler/js/problems/set7.js",
+		"/home/joguntebi/tmp/model.js",
+		"/home/joguntebi/Downloads/Spanner_Exception.rtf",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debug_lockscreen_script_ltr.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_lockscreen_script_ltr.js",
+		"/home/joguntebi/tmp/scary-stored_brush/keep_main-scary_debug_app_script_ltr.js",
+		"/home/joguntebi/tmp/main-corp/keep_main-corp_debugbootstrap.js",
+		"/home/joguntebi/tmp/scary-stored_brush/keep_main-scary_debug_lockscreen_script_ltr.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debugapp_ltr.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debugbackground.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_lockscreen_styles_ltr.css",
+		"/home/joguntebi/tmp/main-corp/keep_main-corp_debug_lockscreen_styles_ltr.css",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debugltr.css",
+		"/home/joguntebi/tmp/main-scary/keep_main-scaryltr.css",
+		"/home/joguntebi/tmp/main-corp/keep_main-corp_debug_lockscreen_script_ltr.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scarybackground.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_lockscreen_script_ltr.js",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debugapp_ltr.js",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debugindex.html",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debugbootstrap.js",
+		"/home/joguntebi/Downloads/clientlog/clientlog.txt",
+		"/home/joguntebi/tmp/main-prod/keep_main-prod_debugbackground.js",
+		"/home/joguntebi/tmp/main-scary/keep_main-scary_debugindex.html",
+		"/home/joguntebi/Downloads/sanitized_keep_error_500.har",
+		"/home/joguntebi/Downloads/Client Log.rtf",
+		"/home/joguntebi/Downloads/2071-08-30-keep.google.com.har",
+		"/home/joguntebi/tmp/grepResult.txt",
+		"/home/joguntebi/Downloads/ic_undo_black_18dp.svg",
+		"/home/joguntebi/.cache/.fr-DcE7zZ/keep.db",
+		"/home/joguntebi/ProjectEuler/index[Conflict].html",
+		"/home/joguntebi/tmp/apply_calls.txt",
+		"/home/joguntebi/Downloads/keep.google.com.har",
+		"/home/joguntebi/tmp/rmcrxfiles.txt",
+		"/home/joguntebi/ProjectEuler/index.html",
+		"/home/joguntebi/ProjectEuler/js/problembase.js",
+		"/home/joguntebi/ProjectEuler/styles.css",
+		"/home/joguntebi/ProjectEuler/js/utils.js",
+		"/home/joguntebi/ProjectEuler/js/problems/set6.js",
+		"/home/joguntebi/ProjectEuler/js/main.js",
+		"/home/joguntebi/ProjectEuler/js/problems/set1.js",
+		"/home/joguntebi/Downloads/ic_drive_document_black_18dp.svg"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"style.backgroundimage=",
+			"dosyncactions = ",
+			"\"message\": \"Notes\"",
+			"notes$mainapp$ui$soy$drawer$homeNotesLabel",
+			"8104421162933956065",
+			"\n  };",
+			"\n\n\n",
+			"netcontrol.js:640 ",
+			".",
+			"notes.model.Node",
+			"wiz",
+			"\n",
+			"@https",
+			"[unmapped] ",
+			"type:",
+			"\\t",
+			"\\n",
+			" list_item",
+			"list_item",
+			"text",
+			"list_item",
+			"1261429861",
+			"text",
+			"\\x22",
+			"\\x5b",
+			"\\x7d",
+			"\\x7b",
+			"list_item",
+			"\\n",
+			"linkify$url",
+			"ChangesSyncHeader",
+			"snb",
+			"n_vcw",
+			"targetversion",
+			"drawing_-editor_",
+			"drawing_-editor_-hidden",
+			"setelementshown",
+			"drawingeditor.prototype.",
+			"editor$drawingeditor.prototype.",
+			"handlemessage_ = ",
+			"\\x5d",
+			"\\x22",
+			"\\x5b",
+			"Downsync",
+			"userInfo",
+			"    ",
+			"\n",
+			"\n\n",
+			"\n",
+			"handlenotificationclicked_",
+			"this.drawingBlob_",
+			"openDrawing =",
+			"LockscreenDrawingEditor",
+			"enablePenMode =",
+			"drawingeditor.prototype.initinkbrushoptions",
+			"addbrushoptions",
+			".getmessage(",
+			"switchBrush",
+			"goog_-menu_",
+			"menu",
+			"settimeout",
+			"menu",
+			"organizenodes_(",
+			"\\",
+			"\\f0\\fs24 \\cf0 ",
+			"lockscreendrawingeditor",
+			"application.prototype.init =",
+			"none",
+			"_",
+			"status\": 500",
+			"\"Status\": 200",
+			"jserror",
+			"500",
+			"\\t",
+			"\\n",
+			"\u001b[36m\u001b[K",
+			"\u001b[35m\u001b[K",
+			"\u001b[m\u001b[K",
+			"\u001b[01;31m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K:\u001b[m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K:\u001b[m\u001b[K\u001b[32m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K-\u001b[m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K-\u001b[m\u001b[K\u001b[32m\u001b[K",
+			"\n                ",
+			"60",
+			"\u001b[36m\u001b[K--",
+			"\u001b[35m\u001b[K",
+			"\u001b[m\u001b[K",
+			"\u001b[01;31m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K:\u001b[m\u001b[K",
+			"36m\u001b[K:\u001b[m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K:\u001b[m\u001b[K\u001b[32m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K-\u001b[m\u001b[K",
+			"\u001b[m\u001b[K\u001b[36m\u001b[K-\u001b[m\u001b[K\u001b[32m\u001b[K",
+			"\u001b[35m\u001b[K./",
+			"gapi_loaded",
+			"55",
+			"52",
+			"isStraight",
+			"flushSuit",
+			"isFlush",
+			"this",
+			"runProblemFromHistory",
+			"BonusIndex",
+			"53",
+			"run =",
+			"52",
+			"settimeoutinterval("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\n  },",
+			"\n\n",
+			"",
+			"$",
+			"notes$model$Node",
+			")\n",
+			" (https",
+			" (",
+			"at ",
+			"    ",
+			"\n",
+			"\"",
+			"[",
+			"}",
+			"{",
+			"\n",
+			"]",
+			"\"",
+			"'",
+			"[",
+			"",
+			"','",
+			"blob",
+			"",
+			"  ",
+			"\n",
+			"",
+			":",
+			"",
+			":",
+			"\n",
+			"61",
+			"\n\n",
+			"\\\\n\\\\n",
+			"\\n\\n",
+			"",
+			"    ",
+			" :: ",
+			"    ",
+			" :: ",
+			"",
+			"56",
+			"55",
+			"straightHigh",
+			"flushSuit",
+			"runProblemFromUrlHistory",
+			"BonusMult",
+			"54",
+			"runInternal =",
+			"53"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": ".sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
