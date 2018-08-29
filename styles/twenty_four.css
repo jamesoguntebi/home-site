@@ -1,0 +1,25 @@
+header {
+  align-items: center;
+  background-color: #018786;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+}
+
+.tabs a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.tabs a:focus,
+.tabs a:hover {
+  color: #ddd !important;
+}
+
+.tabs a.selected {
+  text-decoration: underline;
+}
+
+.tabs a:not(:last-child) {
+  margin-right: 15px;
+}

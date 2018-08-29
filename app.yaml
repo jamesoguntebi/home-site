@@ -18,6 +18,9 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /24.*
+  script: twenty_four.app
+
 - url: /.*
   script: main.app
 
