@@ -211,6 +211,10 @@ function checkNumberSetHelper(expressions, target) {
     expressions.forEach((expression2, j) => {
       if (j <= i) return;
 
+      if (expression1.getValue() === 1 || expression2.getValue() === 1) {
+
+      }
+
       ALL_OPERATIONS.forEach((OperationType) => {
         const partialExpressions = [
           new OperationType(expression1, expression2),

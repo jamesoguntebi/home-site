@@ -1,5 +1,6 @@
 let inputElements = [];
 let solutionsElement = null;
+let puzzleGridElement = null;
 
 const updateUiForHistory = () => {
   if (window.location.hash.toLowerCase().includes('solver')) {
@@ -37,6 +38,24 @@ const openGameUi = () => {
   window.removeEventListener('keydown', handleSelectAll);
   open_solver_button.classList.remove('selected');
   open_game_button.classList.add('selected');
+
+  maybeInitPuzzleGrid();
+};
+
+const maybeInitPuzzleGrid = () => {
+  if (puzzleGridElement.children.length) return;
+
+  for (let i = 1; i <= 9; i++) {
+    const gridEntry = document.createElement('label');
+    gridEntry.innerText = String(i);
+    puzzleGridElement.appendChild(gridEntry);
+  }
+
+  for (let i = 1; i <= 26; i++) {
+    const gridEntry = document.createElement('label');
+    gridEntry.innerText = '_';
+    puzzleGridElement.appendChild(gridEntry);
+  }
 };
 
 /**
@@ -79,6 +98,7 @@ const solvePuzzle = () => {
 window.onload = () => {
   solutionsElement = document.querySelector('.solver-solutions');
   inputElements = Array.from(document.querySelectorAll('.number-inputs input'));
+  puzzleGridElement = document.querySelector('.puzzle-grid');
 
   inputElements.forEach((element, index, array) => {
     element.addEventListener('input', () => {
