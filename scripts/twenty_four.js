@@ -89,6 +89,12 @@ window.onload = () => {
         array[index + 1].select();
       }
     });
+    element.addEventListener('keydown', (evt) => {
+      if (index > 0 && !element.value && evt.keyCode == 8 /* backspace */) {
+        array[index - 1].value = '';
+        array[index - 1].focus();
+      }
+    });
   });
 
   addActionListener(open_solver_button, openSolverUi);

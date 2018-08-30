@@ -43,7 +43,8 @@ class Operation extends Expression {
   toString() {
     const leftSide =
         operationOrder.get(this.left.constructor) <
-                operationOrder.get(this.constructor) ?
+            operationOrder.get(this.constructor) &&
+        !(this.left instanceof SingleNumber) ?
             `(${this.left.toString()})` :
             `${this.left.toString()}`;
 
@@ -53,14 +54,15 @@ class Operation extends Expression {
         NON_COMMUTATIVE_OPERATIONS.includes(this.right.constructor)) {
       rightNeedsParens = true;
     }
-    if (operationOrder.get(this.right.constructor) >
+    if (operationOrder.get(this.right.constructor) <
             operationOrder.get(this.constructor)) {
       rightNeedsParens = true;
     }
         
-    const rightSide = rightNeedsParens ?
-        `(${this.right.toString()})` :
-        `${this.right.toString()}`;
+    const rightSide =
+        rightNeedsParens && !(this.right instanceof SingleNumber) ?
+            `(${this.right.toString()})` :
+            `${this.right.toString()}`;
 
     return this.toStringInternal(leftSide, rightSide);
   }
@@ -155,12 +157,12 @@ class Exponentiation extends Operation {
 
 /** @const Map<!Expression, number> */
 const operationOrder = new Map([
-  [SingleNumber, -1],
   [Addition, 0],
   [Subtraction, 0],
   [Division, 1],
   [Multiplication, 1],
   [Exponentiation, 2],
+  [SingleNumber, 3],
 ]);
 
 /** @type !Array<function(new:Operation)> */
