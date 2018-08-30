@@ -67,12 +67,23 @@ body:not(.solving) .solver-container {
   margin-right: 15px;
 }
 
-.solver-solutions-label {
-  margin: 20px;
+.solver-solutions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  max-width: 750px;
+}
+
+@media only screen and (max-width: 600px) {
+  .solver-solutions {
+    max-width: 450px;
+  }
 }
 
 .solver-solutions > div {
-  padding: 4px 20px;
+  padding: 10px 20px;
+  width: 110px;
 }
 
 .solver-solutions > div:not(:last-child) {
