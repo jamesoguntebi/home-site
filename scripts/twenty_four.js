@@ -42,7 +42,7 @@ const openGameUi = () => {
 /**
  * Adds a click listener and an enter key listener to the element to call the
  * given function.
- * @param {!Element} element 
+ * @param {!Element} element
  * @param {function():void} listener
  */
 const addActionListener = (element, listener) => {
@@ -73,7 +73,7 @@ const solvePuzzle = () => {
           24);
 
   solutions.forEach((solution) => addToSolutionList(solution));
-  solutions.length || addToSolutionList('No solutions');
+  solutions.size || addToSolutionList('No solutions');
 };
 
 window.onload = () => {

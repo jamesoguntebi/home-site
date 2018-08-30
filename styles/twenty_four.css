@@ -85,7 +85,3 @@ body:not(.solving) .solver-container {
   padding: 10px 20px;
   width: 110px;
 }
-
-.solver-solutions > div:not(:last-child) {
-  border-bottom: 1px solid #ddd;
-}

@@ -27,7 +27,7 @@ class SingleNumber extends Expression {
 
 class Operation extends Expression {
   /**
-   * @param {!Expression|number} left 
+   * @param {!Expression|number} left
    * @param {!Expression|number} right
    */
   constructor(left, right) {
@@ -58,7 +58,7 @@ class Operation extends Expression {
             operationOrder.get(this.constructor)) {
       rightNeedsParens = true;
     }
-        
+
     const rightSide =
         rightNeedsParens && !(this.right instanceof SingleNumber) ?
             `(${this.right.toString()})` :
@@ -88,7 +88,7 @@ class Addition extends Operation {
   /** @override */
   getValue() {
     return this.left.getValue() + this.right.getValue();
-  }  
+  }
 }
 
 class Subtraction extends Operation {
@@ -104,7 +104,7 @@ class Subtraction extends Operation {
   /** @override */
   getValue() {
     return this.left.getValue() - this.right.getValue();
-  }  
+  }
 }
 
 class Multiplication extends Operation {
@@ -120,7 +120,7 @@ class Multiplication extends Operation {
   /** @override */
   getValue() {
     return this.left.getValue() * this.right.getValue();
-  }  
+  }
 }
 
 class Division extends Operation {
@@ -136,7 +136,7 @@ class Division extends Operation {
   /** @override */
   getValue() {
     return this.left.getValue() / this.right.getValue();
-  }  
+  }
 }
 
 class Exponentiation extends Operation {
@@ -152,7 +152,7 @@ class Exponentiation extends Operation {
   /** @override */
   getValue() {
     return Math.pow(this.left.getValue(), this.right.getValue());
-  }  
+  }
 }
 
 /** @const Map<!Expression, number> */
@@ -184,19 +184,20 @@ const NON_COMMUTATIVE_OPERATIONS = Object.freeze([
 /**
  * @param {!Array<number>} numbers
  * @param {number} target
- * @return {!Array<string>} solutions 
+ * @return {!Set<string>} solutions
  */
 function checkNumberSet(numbers, target) {
-  return this.checkNumberSetHelper(
-          numbers.map((number) => new SingleNumber(number)),
-          target)
-      .map((expression) => expression.toString());
+  return new Set(
+      this.checkNumberSetHelper(
+              numbers.map((number) => new SingleNumber(number)),
+              target)
+          .map((expression) => expression.toString()));
 }
 
 /**
  * @param {!Array<!Expression>} expressions
  * @param {number} target
- * @return {!Array<Expression>} solutions 
+ * @return {!Array<Expression>} solutions
  */
 function checkNumberSetHelper(expressions, target) {
   if (expressions.length === 1) {
@@ -212,7 +213,7 @@ function checkNumberSetHelper(expressions, target) {
 
       ALL_OPERATIONS.forEach((OperationType) => {
         const partialExpressions = [
-          new OperationType(expression1, expression2), 
+          new OperationType(expression1, expression2),
           ...expressions.filter((_, k) => k != i && k != j)
         ];
         solutionExpressions.push(
@@ -221,7 +222,7 @@ function checkNumberSetHelper(expressions, target) {
 
       NON_COMMUTATIVE_OPERATIONS.forEach((OperationType) => {
         const partialExpressions = [
-          new OperationType(expression2, expression1), 
+          new OperationType(expression2, expression1),
           ...expressions.filter((_, k) => k != i && k != j)
         ];
         solutionExpressions.push(
