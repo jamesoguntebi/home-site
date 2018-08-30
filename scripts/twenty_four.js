@@ -9,16 +9,34 @@ const updateUiForHistory = () => {
   }
 };
 
+const handleSelectAll = (keyEvent) => {
+  if (keyEvent.ctrlKey && keyEvent.key == 'a') {
+    inputElements.forEach((element) => element.value = '');
+    inputElements[0].focus();
+    inputElements[0].select();
+
+    while (solutionsElement.firstChild) {
+      solutionsElement.firstChild.remove();
+    }
+  }
+};
+
 const openSolverUi = () => {
   document.body.classList.add('solving');
   window.location.hash = 'solver';
   inputElements[0].focus();
   inputElements[0].select();
+  window.addEventListener('keydown', handleSelectAll);
+  open_solver_button.classList.add('selected');
+  open_game_button.classList.remove('selected');
 };
 
 const openGameUi = () => {
   document.body.classList.remove('solving');
   window.location.hash = 'game';
+  window.removeEventListener('keydown', handleSelectAll);
+  open_solver_button.classList.remove('selected');
+  open_game_button.classList.add('selected');
 };
 
 /**
@@ -36,6 +54,12 @@ const addActionListener = (element, listener) => {
   });
 };
 
+const addToSolutionList = (text) => {
+  const entryElement = document.createElement('div');
+  entryElement.innerText = text;
+  solutionsElement.appendChild(entryElement);
+};
+
 const solvePuzzle = () => {
   if (inputElements.some((element) => !element.value.trim())) return;
 
@@ -43,11 +67,13 @@ const solvePuzzle = () => {
     solutionsElement.firstChild.remove();
   }
 
-  for (var i = 0; i < 5; i++) {
-    const solution = document.createElement('div');
-    solution.innerText = 'Hey there ' + Math.floor(Math.random() * 10);
-    solutionsElement.appendChild(solution);
-  }
+  const solutions =
+      checkNumberSet(
+          inputElements.map((element) => Number(element.value)),
+          24);
+
+  solutions.forEach((solution) => addToSolutionList(solution));
+  solutions.length || addToSolutionList('No solutions');
 };
 
 window.onload = () => {

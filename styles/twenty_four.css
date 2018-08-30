@@ -12,20 +12,22 @@ header {
 }
 
 .tabs > div {
-  color: white !important;
+  color: white;
   cursor: pointer;
   font-size: 1.4rem;
+  padding: 5px 20px;
   text-decoration: none;
+  user-select: none;
 }
 
 .tabs > div:focus,
-.tabs > div:hover,
-.tabs > div:active {
-  color: #ddd !important;
+.tabs > div:hover {
+  outline: none;
+  text-decoration: underline;
 }
 
-.tabs > div:hover:active {
-  color: #bbb !important;
+.tabs > div:active {
+  color: #ddd;
 }
 
 .tabs > div.selected {
@@ -33,7 +35,7 @@ header {
 }
 
 .tabs > div:not(:last-child) {
-  margin-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 body.solving .game-container,
@@ -62,4 +64,16 @@ body:not(.solving) .solver-container {
 
 .number-inputs input:not(:last-child) {
   margin-right: 15px;
+}
+
+.solver-solutions-label {
+  margin: 20px;
+}
+
+.solver-solutions > div {
+  padding: 4px 10px;
+}
+
+.solver-solutions > div:not(:last-child) {
+  border-bottom: 1px solid #ddd;
 }
