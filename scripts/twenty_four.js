@@ -122,7 +122,14 @@ const solvePuzzle = () => {
   solutions.size || addToSolutionList('No solutions');
 };
 
-
+/**
+ * A random integer on [min, max].
+ * @param {number} min
+ * @param {number} max
+ */
+const randomInt = (min, max) => {
+  return min + Math.floor(Math.random() * (max - min + 1));
+};
 
 const openGameUi = () => {
   document.body.classList.remove('solving');
@@ -133,6 +140,29 @@ const openGameUi = () => {
   open_game_button.classList.add('selected');
 
   maybeInitGameGrid();
+
+  addActionListener(generate_text_button, () => {
+    // 10 paragraphs.
+    // 7 - 15 setences each.
+    // 5 - 15 words each.
+    // 3 - 10 characaters each.
+    const generatedText = Array(10).fill(0).map(_ => {
+      return Array(randomInt(7, 15)).fill(0).map((_, i) => {
+        return Array(randomInt(5, 15)).fill(0).map((_, j) => {
+          let capitalize = (j === 0);
+          return Array(randomInt(3, 10)).fill(0).map((_, k) => {
+            capitalize &= (k === 0);
+            return capitalize ?
+                String.fromCharCode(randomInt(65, 90)) :
+                String.fromCharCode(randomInt(97, 122));
+          }).join(''); // Word.
+        }).join(' '); // Words.
+      }).join('. ') + '.'; // Sentences.
+    }).join('\n\n'); // Paragraphs.
+
+    gameGeneratorInputElement.value = generatedText;
+    handleGameGeneratorInput();
+  });
 
   addActionListener(mark_correct_button, () => {
     activeGameProblem && activeGameProblem.setCorrect(true);
@@ -201,6 +231,8 @@ const handleGameGeneratorInput = () => {
         gameProblemElement.innerText = `${word} - ${digits.join('')}`;
         gameProblemSetsElement.appendChild(gameProblemElement);
       });
+
+  generate_text_button.classList.toggle('hidden', !!newValue);
 };
 
 const processGameCharacters = (characters) => {

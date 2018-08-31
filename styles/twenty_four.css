@@ -10,6 +10,26 @@ header {
   justify-content: center;
 }
 
+.icon-button {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 48px;
+  outline: none;
+  width: 48px;
+}
+
+.icon-button:focus,
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.icon-button:active {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
 .tabs {
   align-items: center;
   display: flex;
@@ -87,14 +107,34 @@ body:not(.solving) .solver-container {
   width: 110px;
 }
 
-.game-generator-input {
-  font-family: Google Sans, sans-serif;
-  font-size: medium;
+.game-generator-input-container {
   height: 150px;
-  resize: none;
+  position: relative;
   width: 80%;
   min-width: 300px;
   max-width: 800px;
+}
+
+#generate_text_button {
+  background-image: url(../../images/generate_text.svg);
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.218s linear;
+}
+
+#generate_text_button.hidden {
+  opacity: 0;
+}
+
+.game-generator-input {
+  box-sizing: border-box;
+  font-family: Google Sans, sans-serif;
+  font-size: medium;
+  height: 100%;
+  resize: none;
+  width: 100%;
 }
 
 .game-grid {
@@ -177,26 +217,6 @@ body:not(.solving) .solver-container {
 .game-problem-actions.showing {
   opacity: 1;
   transform: translateY(0px);
-}
-
-.icon-button {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 24px;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 48px;
-  outline: none;
-  width: 48px;
-}
-
-.icon-button:focus,
-.icon-button:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-}
-
-.icon-button:active {
-  background-color: rgba(0, 0, 0, 0.16);
 }
 
 #mark_correct_button {
