@@ -1,4 +1,8 @@
 header {
+  background-image: url(../../images/twentyfour.jpg);
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
+  background-size: 48px;
   align-items: center;
   background-color: #018786;
   display: flex;
