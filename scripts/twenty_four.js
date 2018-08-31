@@ -1,7 +1,9 @@
+/** @type {?Element} */
+let headerElement = null;
 /** @type {!Array<!Element>} */
 let inputElements = [];
 /** @type {?Element} */
-let solutionsElement = null;
+let solverSolutionsElement = null;
 /** @type {?Element} */
 let gameGridElement = null;
 /** @type {?Element} */
@@ -10,21 +12,27 @@ let gameGeneratorInputElement = null;
 let gameProblemSetsElement = null;
 /** @type {?Element} */
 let gameProblemActionsElement = null;
+/** @type {?Element} */
+let gameProblemSolutionsElement = null;
 
 let lastGameGeneratorInputValue = '';
 const gameGridCharacterElements = [];
 const alphabetIndexToDigit = new Map();
 let nextGameIndex = 0;
 const gameWords = new Set();
-let activeGameProblem = null
+let activeGameProblem = null;
+const attemptedProblems = new Set();
 
 window.onload = () => {
-  solutionsElement = document.querySelector('.solver-solutions');
+  headerElement = document.querySelector('header');
+  solverSolutionsElement = document.querySelector('.solver-solutions');
   inputElements = Array.from(document.querySelectorAll('.number-inputs input'));
   gameGridElement = document.querySelector('.game-grid');
   gameGeneratorInputElement = document.querySelector('.game-generator-input');
   gameProblemSetsElement = document.querySelector('.game-problem-sets');
   gameProblemActionsElement = document.querySelector('.game-problem-actions');
+  gameProblemSolutionsElement =
+      document.querySelector('.game-problem-solutions');
 
   inputElements.forEach((element, index, array) => {
     element.addEventListener('input', () => {
@@ -50,6 +58,10 @@ window.onload = () => {
 
   window.addEventListener('popstate', updateUiForHistory);
   updateUiForHistory();
+
+  window.addEventListener('scroll', () => {
+    headerElement.classList.toggle('scrolled', window.scrollY > 0);
+  });
 };
 
 const updateUiForHistory = () => {
@@ -75,6 +87,32 @@ const addActionListener = (element, listener) => {
   });
 };
 
+/**
+ * @param {!Element} listElement
+ * @param {string} text
+ */
+const addToSolutionList = (listElement, text) => {
+  const entryElement = document.createElement('div');
+  entryElement.innerText = text;
+  listElement.appendChild(entryElement);
+};
+
+/**
+ * @param {!Element} listElement
+ * @param {!Array<number>}
+ * @return {number} Solution count.
+ */
+const addSolutionsToElement = (listElement, digits) => {
+  while (listElement.firstChild) {
+    listElement.firstChild.remove();
+  }
+
+  const solutionSet = checkNumberSet(digits, 24);
+  solutionSet.forEach((solution) => addToSolutionList(listElement, solution));
+  solutionSet.size || addToSolutionList(listElement, 'No solutions');
+  return solutionSet.size;
+};
+
 
 
 const openSolverUi = () => {
@@ -94,32 +132,17 @@ const handleSelectAll = (keyEvent) => {
     inputElements[0].focus();
     inputElements[0].select();
 
-    while (solutionsElement.firstChild) {
-      solutionsElement.firstChild.remove();
+    while (solverSolutionsElement.firstChild) {
+      solverSolutionsElement.firstChild.remove();
     }
   }
 };
 
-const addToSolutionList = (text) => {
-  const entryElement = document.createElement('div');
-  entryElement.innerText = text;
-  solutionsElement.appendChild(entryElement);
-};
-
 const solvePuzzle = () => {
   if (inputElements.some((element) => !element.value.trim())) return;
-
-  while (solutionsElement.firstChild) {
-    solutionsElement.firstChild.remove();
-  }
-
-  const solutions =
-      checkNumberSet(
-          inputElements.map((element) => Number(element.value)),
-          24);
-
-  solutions.forEach((solution) => addToSolutionList(solution));
-  solutions.size || addToSolutionList('No solutions');
+  addSolutionsToElement(
+      solverSolutionsElement,
+      inputElements.map((element) => Number(element.value)));
 };
 
 /**
@@ -166,14 +189,20 @@ const openGameUi = () => {
 
   addActionListener(mark_correct_button, () => {
     activeGameProblem && activeGameProblem.setCorrect(true);
-    hideGameProblemActions();
+    hideGameProblemDetails();
   });
   addActionListener(mark_incorrect_button, () => {
     activeGameProblem && activeGameProblem.setCorrect(false);
-    hideGameProblemActions();
+    hideGameProblemDetails();
   });
   addActionListener(show_solutions_button, () => {
-    // Show solutions.
+    if (!activeGameProblem) return;
+    const solutionCount =
+        addSolutionsToElement(
+            gameProblemSolutionsElement, activeGameProblem.getDigits());
+
+    gameProblemSolutionsElement.style.display = '';
+    gameProblemSolutionsElement.classList.add('showing');
   });
 };
 
@@ -181,8 +210,9 @@ const handleDocClick = (e) => {
   if (gameProblemActionsElement.classList.contains('showing') &&
       !gameProblemActionsElement.contains(e.target) &&
       !(gameProblemSetsElement.contains(e.target) &&
-            e.target != gameProblemSetsElement)) {
-    hideGameProblemActions();
+            e.target != gameProblemSetsElement) &&
+      !gameProblemSolutionsElement.contains(e.target)) {
+    hideGameProblemDetails();
   };
 };
 
@@ -201,6 +231,23 @@ const maybeInitGameGrid = () => {
     gameGridElement.appendChild(gridEntry);
     gameGridCharacterElements.push(gridEntry);
   }
+};
+
+const updateGameScore = () => {
+  if (!attemptedProblems.size) {
+    game_score.innerText = '';
+    return;
+  }
+  let correct = 0;
+  attemptedProblems.forEach((problem) => {
+    if (problem.isCorrect()) correct++;
+  });
+  const ratio = correct / attemptedProblems.size * 100;
+  if (ratio > 90) game_score.className = 'owning';
+  else if (ratio > 80) game_score.className = 'trying';
+  else if (ratio > 70) game_score.className = 'struggling';
+  else game_score.className = 'sucking';
+  game_score.innerText = `${ratio.toFixed()}%`;
 };
 
 const handleGameGeneratorInput = () => {
@@ -271,10 +318,16 @@ const attachGameProblemActions = (element) => {
   gameProblemActionsElement.classList.add('showing');
 };
 
-const hideGameProblemActions = () => {
+/**
+ * Hides the gameProblemActionsElement popup and the gameProblemSolutionsElement
+ * bottom sheet.
+ */
+const hideGameProblemDetails = () => {
   gameProblemActionsElement.classList.remove('showing');
+  gameProblemSolutionsElement.classList.remove('showing');
   setTimeout(() => {
     gameProblemActionsElement.style.display = 'none';
+    gameProblemSolutionsElement.style.display = 'none';
   }, 218);
   activeGameProblem = null;
 };
@@ -287,7 +340,7 @@ class GameProblem {
   constructor(element, digits) {
     /** @private {!Element} */
     this.element_ = element;
-    /** @private {!Array<number>} */
+    /** @const {!Array<number>} */
     this.digits_ = digits;
     /** @private {boolean|undefined} */
     this.correct_ = undefined;
@@ -298,12 +351,22 @@ class GameProblem {
     });
   }
 
+  /** @return {!Array<number>} */
+  getDigits(correct) {
+    return this.digits_;
+  }
+
   /** @param {boolean} correct */
   setCorrect(correct) {
-    if (this.correct_ === false) return;
     this.correct_ = correct;
     this.element_.classList.toggle('correct', correct);
     this.element_.classList.toggle('incorrect', !correct);
+    attemptedProblems.add(this);
+    updateGameScore();
   }
 
+  /** @return {boolean} */
+  isCorrect() {
+    return !!this.correct_;
+  }
 }
