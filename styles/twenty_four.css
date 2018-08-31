@@ -39,7 +39,7 @@ header {
 }
 
 .tabs > div:not(:last-child) {
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 body.solving .game-container,
@@ -102,6 +102,7 @@ body:not(.solving) .solver-container {
   grid-template-columns: repeat(9, auto);
   margin-top: 30px;
   max-width: 800px;
+  user-select: none;
   width: 100%;
 }
 
@@ -133,7 +134,79 @@ body:not(.solving) .solver-container {
 .game-problem-sets > div {
   border: 1px dashed #eee;
   box-sizing: border-box;
+  cursor: pointer;
   font-family: Roboto Mono, monospace;
   padding: 10px 20px;
   width: 150px;
+}
+
+.game-problem-sets > div:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.game-problem-sets > div:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.game-problem-sets > div.correct {
+  background-color: #bfc;
+}
+
+.game-problem-sets > div.incorrect {
+  background-color: #fcc;
+}
+
+
+.game-problem-actions {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-around;
+  opacity: 0;
+  padding: 6px 15px;
+  position: fixed;
+  transform: translateY(20px);
+  transition:
+      opacity 0.218s ease-in-out,
+      transform 0.218s ease-in-out;
+  width: 184px;
+}
+
+.game-problem-actions.showing {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.icon-button {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 48px;
+  outline: none;
+  width: 48px;
+}
+
+.icon-button:focus,
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.icon-button:active {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+#mark_correct_button {
+  background-image: url(../../images/correct.svg);
+}
+
+#mark_incorrect_button {
+  background-image: url(../../images/incorrect.svg);
+}
+
+#show_solutions_button {
+  background-image: url(../../images/show_solutions.svg);
 }

@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"trans",
+				"translateY()\ttransform"
+			],
+			[
+				"chara",
+				"characters"
+			],
+			[
+				"cha",
+				"characters"
+			],
+			[
+				"grid-co",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"puzzle",
+				"puzzleGridElement"
+			],
+			[
+				"expres",
+				"expression2"
+			],
+			[
 				"problem",
 				"problemNumber"
 			],
@@ -15,6 +39,42 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "styles/twenty_four.css",
+			"settings":
+			{
+				"buffer_size": 3569,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "images/show_solutions.svg",
+			"settings":
+			{
+				"buffer_size": 682,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/twenty_four.js",
+			"settings":
+			{
+				"buffer_size": 5894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/twenty_four.html",
+			"settings":
+			{
+				"buffer_size": 1579,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -48,10 +108,18 @@
 	},
 	"expanded_folders":
 	[
-		"/home/joguntebi/personal/home-site"
+		"/usr/local/google/home/joguntebi/personal/home-site",
+		"/usr/local/google/home/joguntebi/personal/home-site/images",
+		"/usr/local/google/home/joguntebi/personal/home-site/scripts",
+		"/usr/local/google/home/joguntebi/personal/home-site/styles",
+		"/usr/local/google/home/joguntebi/personal/home-site/templates"
 	],
 	"file_history":
 	[
+		"/usr/local/google/home/joguntebi/personal/home-site/images/correct.svg",
+		"/usr/local/google/home/joguntebi/personal/home-site/images/show_solutions.svg",
+		"/usr/local/google/home/joguntebi/personal/home-site/images/incorrect.svg",
+		"/usr/local/google/home/joguntebi/personal/home-site/scripts/calculator.js",
 		"/home/joguntebi/tmp/main-scary/keep_main-scary_app_script_ltr.js",
 		"/home/joguntebi/tmp/main-scary/keep_main-scary_debug_app_script_ltr.js",
 		"/home/joguntebi/tmp/main-prod/_locales/en/messages.json",
@@ -126,7 +194,7 @@
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -137,9 +205,19 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"255, 255, 255",
+			"0, 0, 0",
+			";\n",
+			".companion-shell-header-button",
+			"problem",
+			"alphabetIndexToGameIndex",
+			"Puzzle",
+			"puzzle",
+			"checkNumberSet",
+			"media",
 			"style.backgroundimage=",
 			"dosyncactions = ",
 			"\"message\": \"Notes\"",
@@ -255,6 +333,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"0, 0, 0",
+			"255, 255, 255",
+			".icon-button",
+			"alphabetIndexToDigit",
+			"Game",
+			"game",
 			"\n  },",
 			"\n\n",
 			"",
@@ -315,8 +399,133 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "styles/twenty_four.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2811,
+								2811
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2146.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "images/show_solutions.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								359,
+								359
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/twenty_four.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5290,
+								5290
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2356.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "templates/twenty_four.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1295,
+								1295
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -337,11 +546,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.54995196926,
 			1.0
 		],
 		"rows":
@@ -359,7 +575,7 @@
 	"project": ".sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -397,7 +613,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 242.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

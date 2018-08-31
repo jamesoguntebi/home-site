@@ -1,14 +1,22 @@
+/** @type {!Array<!Element>} */
 let inputElements = [];
+/** @type {?Element} */
 let solutionsElement = null;
+/** @type {?Element} */
 let gameGridElement = null;
+/** @type {?Element} */
 let gameGeneratorInputElement = null;
+/** @type {?Element} */
 let gameProblemSetsElement = null;
+/** @type {?Element} */
+let gameProblemActionsElement = null;
 
 let lastGameGeneratorInputValue = '';
 const gameGridCharacterElements = [];
 const alphabetIndexToDigit = new Map();
 let nextGameIndex = 0;
 const gameWords = new Set();
+let activeGameProblem = null
 
 window.onload = () => {
   solutionsElement = document.querySelector('.solver-solutions');
@@ -16,6 +24,7 @@ window.onload = () => {
   gameGridElement = document.querySelector('.game-grid');
   gameGeneratorInputElement = document.querySelector('.game-generator-input');
   gameProblemSetsElement = document.querySelector('.game-problem-sets');
+  gameProblemActionsElement = document.querySelector('.game-problem-actions');
 
   inputElements.forEach((element, index, array) => {
     element.addEventListener('input', () => {
@@ -74,6 +83,7 @@ const openSolverUi = () => {
   inputElements[0].focus();
   inputElements[0].select();
   window.addEventListener('keydown', handleSelectAll);
+  document.removeEventListener('click', handleDocClick, true /* useCapture */);
   open_solver_button.classList.add('selected');
   open_game_button.classList.remove('selected');
 };
@@ -118,10 +128,31 @@ const openGameUi = () => {
   document.body.classList.remove('solving');
   window.location.hash = 'game';
   window.removeEventListener('keydown', handleSelectAll);
+  document.addEventListener('click', handleDocClick, true /* useCapture */);
   open_solver_button.classList.remove('selected');
   open_game_button.classList.add('selected');
 
   maybeInitGameGrid();
+
+  addActionListener(mark_correct_button, () => {
+    activeGameProblem && activeGameProblem.setCorrect(true);
+    hideGameProblemActions();
+  });
+  addActionListener(mark_incorrect_button, () => {
+    activeGameProblem && activeGameProblem.setCorrect(false);
+    hideGameProblemActions();
+  });
+  addActionListener(show_solutions_button, () => {
+    // Show solutions.
+  });
+};
+
+const handleDocClick = (e) => {
+  if (gameProblemActionsElement.classList.contains('showing') &&
+      !gameProblemActionsElement.contains(e.target) &&
+      !gameProblemSetsElement.contains(e.target)) {
+    hideGameProblemActions();
+  };
 };
 
 const maybeInitGameGrid = () => {
@@ -163,11 +194,11 @@ const handleGameGeneratorInput = () => {
                   const alphabetIndex = char.charCodeAt(0) - 65;
                   return alphabetIndexToDigit.get(alphabetIndex);
                 })
-                .sort()
-                .join('');
+                .sort();
 
         const gameProblemElement = document.createElement('div');
-        gameProblemElement.innerText = `${word} - ${digits}`;
+        const newProblem = new GameProblem(gameProblemElement, digits);
+        gameProblemElement.innerText = `${word} - ${digits.join('')}`;
         gameProblemSetsElement.appendChild(gameProblemElement);
       });
 };
@@ -185,3 +216,59 @@ const processGameCharacters = (characters) => {
     }
   }
 };
+
+/** @param {!Element} element */
+const attachGameProblemActions = (element) => {
+  gameProblemActionsElement.style.visibility = 'hidden';
+  gameProblemActionsElement.style.display = '';
+
+  const elementRect = element.getBoundingClientRect();
+  const horizontalCenter = elementRect.left + elementRect.width / 2;
+
+  const left =
+      Math.max(0, horizontalCenter - gameProblemActionsElement.clientWidth / 2);
+  const top =
+      Math.max(0, elementRect.top - gameProblemActionsElement.clientHeight);
+  gameProblemActionsElement.style.left = `${left}px`;
+  gameProblemActionsElement.style.top = `${top}px`;
+
+  gameProblemActionsElement.style.visibility = '';
+  gameProblemActionsElement.classList.add('showing');
+};
+
+const hideGameProblemActions = () => {
+  gameProblemActionsElement.classList.remove('showing');
+  setTimeout(() => {
+    gameProblemActionsElement.style.display = 'none';
+  }, 218);
+  activeGameProblem = null;
+};
+
+class GameProblem {
+  /**
+   * @param {!Element} element The problem element in the game problem grid.
+   * @param {!Array<number>} digits The digits of the problem.
+   */
+  constructor(element, digits) {
+    /** @private {!Element} */
+    this.element_ = element;
+    /** @private {!Array<number>} */
+    this.digits_ = digits;
+    /** @private {boolean|undefined} */
+    this.correct_ = undefined;
+
+    addActionListener(this.element_, () => {
+      attachGameProblemActions(this.element_);
+      activeGameProblem = this;
+    });
+  }
+
+  /** @param {boolean} correct */
+  setCorrect(correct) {
+    if (this.correct_ === false) return;
+    this.correct_ = correct;
+    this.element_.classList.toggle('correct', correct);
+    this.element_.classList.toggle('incorrect', !correct);
+  }
+
+}

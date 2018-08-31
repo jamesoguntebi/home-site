@@ -20,9 +20,11 @@ handlers:
 
 - url: /24.*
   script: twenty_four.app
+  secure: always
 
 - url: /.*
   script: main.app
+  secure: always
 
 
 libraries:

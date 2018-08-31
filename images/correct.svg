@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="GM_Material" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" fill="#1b3">
+  <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8
+  	S16.41,20,12,20z"/>
+    <g>
+    	<polygon points="10,14.2 7.4,11.6 6,13 10,17 18,9 16.6,7.6"/>
+    </g>
+  <path fill="none" d="M0,0h24v24H0V0z"/>
+</svg>
