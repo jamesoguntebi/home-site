@@ -142,11 +142,11 @@ const openGameUi = () => {
   maybeInitGameGrid();
 
   addActionListener(generate_text_button, () => {
-    // 10 paragraphs.
+    // 3 paragraphs.
     // 7 - 15 setences each.
     // 5 - 15 words each.
     // 3 - 10 characaters each.
-    const generatedText = Array(10).fill(0).map(_ => {
+    const generatedText = Array(3).fill(0).map(_ => {
       return Array(randomInt(7, 15)).fill(0).map((_, i) => {
         return Array(randomInt(5, 15)).fill(0).map((_, j) => {
           let capitalize = (j === 0);
@@ -180,7 +180,8 @@ const openGameUi = () => {
 const handleDocClick = (e) => {
   if (gameProblemActionsElement.classList.contains('showing') &&
       !gameProblemActionsElement.contains(e.target) &&
-      !gameProblemSetsElement.contains(e.target)) {
+      !(gameProblemSetsElement.contains(e.target) &&
+            e.target != gameProblemSetsElement)) {
     hideGameProblemActions();
   };
 };
@@ -258,9 +259,11 @@ const attachGameProblemActions = (element) => {
   const horizontalCenter = elementRect.left + elementRect.width / 2;
 
   const left =
-      Math.max(0, horizontalCenter - gameProblemActionsElement.clientWidth / 2);
+      Math.max(0, horizontalCenter - gameProblemActionsElement.clientWidth / 2) +
+          window.pageXOffset;
   const top =
-      Math.max(0, elementRect.top - gameProblemActionsElement.clientHeight);
+      Math.max(0, elementRect.top - gameProblemActionsElement.clientHeight) +
+      window.pageYOffset;
   gameProblemActionsElement.style.left = `${left}px`;
   gameProblemActionsElement.style.top = `${top}px`;
 

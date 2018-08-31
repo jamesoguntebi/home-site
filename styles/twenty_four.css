@@ -206,7 +206,7 @@ body:not(.solving) .solver-container {
   justify-content: space-around;
   opacity: 0;
   padding: 6px 15px;
-  position: fixed;
+  position: absolute;
   transform: translateY(20px);
   transition:
       opacity 0.218s ease-in-out,
