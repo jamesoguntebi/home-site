@@ -51,7 +51,8 @@ class Operation extends Expression {
     let rightNeedsParens = false;
     if (operationOrder.get(this.right.constructor) ===
             operationOrder.get(this.constructor) &&
-        NON_COMMUTATIVE_OPERATIONS.includes(this.right.constructor)) {
+        (NON_COMMUTATIVE_OPERATIONS.includes(this.right.constructor) ||
+             NON_COMMUTATIVE_OPERATIONS.includes(this.constructor))) {
       rightNeedsParens = true;
     }
     if (operationOrder.get(this.right.constructor) <
